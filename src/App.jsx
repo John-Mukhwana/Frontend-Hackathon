@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import HomePage from "./pages/HomePage";
 import LoginForm from "./components/Home/Login";
-import EventList from "./components/Home/";
-import EventDetail from "./pages/EventDetail";
+import EventList from "./components/Home/EventList";
+import EventDetail from "./components/Home/EventDetails";
 
 function App() {
   const router = createBrowserRouter([
