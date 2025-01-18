@@ -1,6 +1,7 @@
 import Footer from "../components/Home/footer"
 import Intro from "../components/Home/intro"
 import Navbar from "../components/Home/navbar"
+import Testimonials from "../components/Home/Testimonial"
 import WhyChooseUs from "../components/Home/whyUs"
 
 
@@ -14,6 +15,9 @@ const HomePage = () => {
            </div>
            <div>
             <WhyChooseUs/>
+           </div>
+           <div>
+            <Testimonials/>
            </div>
            <Footer/>
         </div>

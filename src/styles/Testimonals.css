@@ -1,0 +1,47 @@
+
+/* Global Style */
+.testimonial-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .testimonial-card {
+    opacity: 0.6;
+    transform: scale(0.85);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .testimonial-card.active {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .testimonial-card.inactive {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  
+  /* Mobile View Adjustments */
+  @media (max-width: 640px) {
+    .testimonial-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .testimonial-card {
+      width: 100% !important; /* Ensure cards fill the available space on mobile */
+      margin: 0 auto;
+    }
+  }
+  
+  @media (min-width: 640px) and (max-width: 1024px) {
+    .testimonial-container {
+      flex-direction: row;
+    }
+  
+    .testimonial-card {
+      width: 100%;
+    }
+  }
+  
