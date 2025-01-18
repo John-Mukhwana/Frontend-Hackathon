@@ -1,4 +1,4 @@
-import React from 'react';
+import  from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EventList from './components/Home/EventList';
 import EventDetail from './components/Home/EventDetails'; 
