@@ -1,22 +1,12 @@
-
-
 import React, { useState, useEffect } from 'react';
-import '../Styles/Testimonals.css';
+import '../../styles/Testimonals.css';
 
-interface Testimonial {
-  name: string;
-  image: string;
-  review: string;
-  rating: number;
-  date: string;
-}
-
-const testimonials: Testimonial[] = [
+const testimonials = [
   {
     name: 'John Doe',
     image: 'https://randomuser.me/api/portraits/men/1.jpg',
     review:
-      "Amazing service! I’m so happy with my new boat, and the customer support team was extremely helpful. Highly recommend!",
+      "Eventia made planning our corporate event seamless and stress-free. The tools provided were intuitive and the support team was excellent!",
     rating: 5,
     date: 'October 15, 2024',
   },
@@ -24,7 +14,7 @@ const testimonials: Testimonial[] = [
     name: 'Jane Smith',
     image: 'https://randomuser.me/api/portraits/women/1.jpg',
     review:
-      'This place has the best motors in the market. Great quality and excellent customer service!',
+      'Using Eventia for our wedding planning was a game-changer. Everything was organized perfectly and our guests had a fantastic time!',
     rating: 4,
     date: 'September 30, 2024',
   },
@@ -32,7 +22,7 @@ const testimonials: Testimonial[] = [
     name: 'Alice Johnson',
     image: 'https://randomuser.me/api/portraits/women/2.jpg',
     review:
-      'I’m thrilled with my new vehicle! It’s exactly as advertised. Delivery was fast, and the team was super friendly.',
+      'Eventia’s analytics tools provided invaluable insights into our event’s performance. We were able to make informed decisions that led to a successful event.',
     rating: 5,
     date: 'August 5, 2024',
   },
@@ -40,14 +30,14 @@ const testimonials: Testimonial[] = [
     name: 'Mike Brown',
     image: 'https://randomuser.me/api/portraits/men/2.jpg',
     review:
-      "The experience exceeded my expectations. Great value for money. I’ll definitely buy from here again.",
+      "The guest management features in Eventia are top-notch. RSVPs were tracked effortlessly and communication with attendees was smooth.",
     rating: 4,
     date: 'July 20, 2024',
   },
 ];
 
-const Testimonials: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-slide every 5 seconds for a smoother transition
   useEffect(() => {
@@ -60,7 +50,7 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-gray-800 py-16  bg-cover bg-center">
+    <section className="bg-gray-800 py-16 bg-cover bg-center">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4 text-white">What Our Users Say</h2>
         <p className="text-lg text-gray-400 mb-10">Hear from our satisfied customers!</p>
