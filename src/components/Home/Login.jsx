@@ -85,11 +85,11 @@ const LoginForm = () => {
         {/* Left Section: Image with Text */}
         <div className="relative h-56 md:h-auto md:w-1/2">
           <img
-            src="https://res.cloudinary.com/dbczn8b8l/image/upload/v1731187431/lzwyqzsowxgfjfirafmk.jpg"
+            src="https://res.cloudinary.com/dbczn8b8l/image/upload/v1737214993/orttayvpdwfgjonlyntx.jpg"
             alt="Boat"
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/70 to-blue-900/70 flex flex-col items-center justify-center text-center p-6 text-white">
+          <div className="absolute inset-0 bg-gradient-to-b  to-blue-900/70 flex flex-col items-center justify-center text-center p-6 text-white">
             <h2 className="text-2xl md:text-3xl font-semibold mb-2 animate-bounce">
               Welcome Back!
             </h2>
