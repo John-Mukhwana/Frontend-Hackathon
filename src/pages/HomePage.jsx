@@ -15,6 +15,9 @@ const HomePage = () => {
            <div>
             <WhyChooseUs/>
            </div>
+           <div>
+            
+           </div>
            <Footer/>
         </div>
     )
