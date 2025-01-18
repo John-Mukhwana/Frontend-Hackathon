@@ -18,7 +18,7 @@ function App() {
       element: <LoginForm />
     },
     {
-      path: "/",
+      path: "event",
       element: <EventList />,
     },
     {
