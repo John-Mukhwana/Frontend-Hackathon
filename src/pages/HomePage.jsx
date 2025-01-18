@@ -4,7 +4,7 @@ import Navbar from "../components/Home/navbar"
 
 const HomePage = () => {
     return (
-        <div>
+        <div className=" md:mx-auto overflow-hidden">
            <Navbar/>
         </div>
     )
