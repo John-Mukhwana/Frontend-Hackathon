@@ -1,7 +1,7 @@
 
-import React from 'react';
+// import '../../styles/Intro.css';
 
-const Intro: React.FC = () => {
+const Intro = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Video */}
@@ -10,7 +10,9 @@ const Intro: React.FC = () => {
         src="https://res.cloudinary.com/dbczn8b8l/video/upload/v1737211570/enngzycxl2vb1skb5zeo.mp4" // Replace with the URL of your video
         autoPlay
         loop
+        muted
         playsInline
+        preload="auto"
       />
 
       {/* Overlay */}
