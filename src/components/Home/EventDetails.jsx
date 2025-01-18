@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const EventDetail = () => {
@@ -6,7 +6,7 @@ const EventDetail = () => {
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/events/${id}`)
+    fetch(`http://localhost:5000/events/${id}`)
       .then(response => response.json())
       .then(data => setEvent(data))
       .catch(error => console.error('Error fetching event details:', error));

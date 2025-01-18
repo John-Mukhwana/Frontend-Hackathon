@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const EventList = () => {
@@ -8,7 +8,7 @@ const EventList = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    fetch('http://localhost:3001/events')
+    fetch('http://localhost:5000/events')
       .then((response) => response.json())
       .then((data) => {
         setEvents(data);

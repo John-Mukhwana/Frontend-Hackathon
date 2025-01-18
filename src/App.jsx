@@ -1,26 +1,29 @@
-import  from 'react';
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import EventList from './components/Home/EventList';
-import EventDetail from './components/Home/EventDetails'; 
-import './App.css';
+import './App.css'
+import HomePage from "./pages/HomePage";
+import EventList from "./components/Home/EventDetails";
+import EventDetail from "./components/Home/EventDetails";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <EventList />,
-  },
-  {
-    path: "/events/:id",
-    element: <EventDetail />, // Use EventDetail here instead of EventDetails
-  },
-]);
+function App() {
+  const router = createBrowserRouter([
+    {
+      path: "",
+      element: <HomePage />
+    },
+    {
+      path: "/event",
+      element: <EventList />,
+    },
+    {
+      path: "/events/:id",
+      element: <EventDetail />, // Use EventDetail here instead of EventDetails
+    },
+  ])
 
-const App = () => {
   return (
-    <div className="app">
-      <RouterProvider router={router} />
-    </div>
-  );
-};
+     <RouterProvider router={router} />
+  )
+}
 
 export default App;

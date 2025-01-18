@@ -39,9 +39,9 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex space-x-8">
             <Link to="/" className="hover:text-yellow-300 transition duration-300">Home</Link>
-            <Link to="#Products" className="hover:text-yellow-300 transition duration-300">Boats</Link>
-            <Link to="/#vehicles" className="hover:text-yellow-300 transition duration-300">Vehicles</Link>
-            <Link to="/#motors" className="hover:text-yellow-300 transition duration-300">Motors</Link>
+            <Link to="#Events" className="hover:text-yellow-300 transition duration-300">Events</Link>
+            <Link to="/#OurSevies" className="hover:text-yellow-300 transition duration-300">Our Services</Link>
+            <Link to="/#Testimoniala" className="hover:text-yellow-300 transition duration-300">Testimonials</Link>
             <Link to="/#contact" className="hover:text-yellow-300 transition duration-300">Contact Us</Link>
           </div>
 
