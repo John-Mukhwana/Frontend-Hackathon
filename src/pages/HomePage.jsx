@@ -1,3 +1,4 @@
+import ContactUs from "../components/Home/contact"
 import EventList from "../components/Home/EventList"
 import Footer from "../components/Home/footer"
 import Intro from "../components/Home/intro"
@@ -22,6 +23,9 @@ const HomePage = () => {
            </div>
            <div>
             <Testimonials/>
+           </div>
+           <div>
+            <ContactUs/>
            </div>
            
            <Footer/>
