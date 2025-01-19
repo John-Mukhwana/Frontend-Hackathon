@@ -18,6 +18,10 @@ function App() {
       element: <LoginForm />
     },
     {
+      path:"/SignUP",
+      element: <RegistrationForm
+    }
+    {
       path: "event",
       element: <EventList />,
     },
