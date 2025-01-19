@@ -138,6 +138,7 @@ const RegisterForm = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -150,6 +151,7 @@ const RegisterForm = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -162,6 +164,7 @@ const RegisterForm = () => {
                 name="repeatPassword"
                 value={formData.repeatPassword}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
