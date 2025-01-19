@@ -72,16 +72,16 @@ const RegisterForm = () => {
       <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl flex flex-col md:flex-row">
         <div className="relative h-56 md:h-auto md:w-1/2">
           <img
-            src="https://res.cloudinary.com/dbczn8b8l/image/upload/v1731187431/lzwyqzsowxgfjfirafmk.jpg"
+            src="https://res.cloudinary.com/dbczn8b8l/image/upload/v1737214995/hqwmfgni4yc3m9srfkvx.jpg"
             alt="Boat"
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/70 to-blue-900/70 flex flex-col items-center justify-center text-center p-6 text-white">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-700/10 to-gray-900/70 flex flex-col items-center justify-center text-center p-6 text-white">
             <h2 className="text-2xl md:text-3xl font-semibold mb-2 animate-bounce">
             Manage Your Events Seamlessly
             </h2>
             <p className="text-sm md:text-lg">
-            Sign up now and streamline your event management with Eventia!
+              Sign up now and streamline your event management with Eventia!
             </p>
           </div>
         </div>
