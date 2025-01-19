@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import LoginForm from "./components/Home/Login";
 import EventList from "./components/Home/EventList";
 import EventDetail from "./components/Home/EventDetails";
+import SignUp from "./components/Home/SignUp";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,8 +20,8 @@ function App() {
     },
     {
       path:"/SignUP",
-      element: <RegistrationForm
-    }
+      element: <SignUp />
+    },
     {
       path: "event",
       element: <EventList />,
