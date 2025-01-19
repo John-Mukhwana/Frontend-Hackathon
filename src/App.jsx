@@ -1,11 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './App.css'
+import './App.css';
 import HomePage from "./pages/HomePage";
 import LoginForm from "./components/Home/Login";
 import EventList from "./components/Home/EventList";
-import EventDetail from "./components/Home/EventDetails";
 import SignUp from "./components/Home/SignUp";
 
 function App() {
@@ -15,29 +14,25 @@ function App() {
       element: <HomePage />
     },
     {
-      path:"/Login",
+      path: "/Login",
       element: <LoginForm />
     },
     {
-      path:"/SignUP",
+      path: "/SignUP",
       element: <SignUp />
     },
     {
-      path: "event",
-      element: <EventList />,
+      path: "/events", // Corrected path for the event list
+      element: <EventList />, // EventList will handle the modal for event details
     },
-    {
-      path: "/events/:id",
-      element: <EventDetail />, // Use EventDetail here instead of EventDetails
-    },
-  ])
+  ]);
 
   return (
     <>
-     <RouterProvider router={router} />
-     <ToastContainer 
+      <RouterProvider router={router} />
+      <ToastContainer 
         position="top-right"
-        autoClose={2000} // Duration in milliseconds
+        autoClose={2000} 
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -46,8 +41,8 @@ function App() {
         draggable
         pauseOnHover
       />
-      </>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;

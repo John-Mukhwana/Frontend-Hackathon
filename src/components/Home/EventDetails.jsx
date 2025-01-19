@@ -1,28 +1,15 @@
-import  { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
-const EventDetail = () => {
-  const { id } = useParams();
-  const [event, setEvent] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/events/${id}`)
-      .then(response => response.json())
-      .then(data => setEvent(data))
-      .catch(error => console.error('Error fetching event details:', error));
-  }, [id]);
-
+const EventDetail = ({ event }) => {
   if (!event) {
     return <p>Loading event details...</p>;
   }
 
   return (
-    <div className="event-detail p-4">
-      <h2 className="text-3xl font-bold mb-4">{event.title}</h2>
+    <div className="event-detail">
+      <h2 className="text-2xl font-bold">{event.title}</h2>
       <img
         src={event.image}
         alt={event.title}
-        className="w-full h-64 object-cover rounded-lg mb-6"
+        className="w-full h-48 object-cover rounded-lg my-4"
       />
       <div className="text-lg mb-4">
         <p><strong>Category:</strong> {event.category}</p>
@@ -31,9 +18,14 @@ const EventDetail = () => {
         <p><strong>Price:</strong> KSH {event.price}</p>
         <p><strong>Date:</strong> {event.date}</p>
       </div>
-      <button className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
-        RSVP
-      </button>
+      <div className="flex space-x-4">
+        <button className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+          RSVP
+        </button>
+        <button className="bg-green-500 text-white p-2 rounded-md hover:bg-green-600">
+          Book
+        </button>
+      </div>
     </div>
   );
 };
