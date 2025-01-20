@@ -1,8 +1,9 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import { FaTrash } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 
-const EventDetail = ({ event }) => {
+const EventCard = ({ event }) => {
   const { addToCart } = useCart();
 
   const handleRSVP = () => {
@@ -78,4 +79,6 @@ const EventDetail = ({ event }) => {
   );
 };
 
-export default EventDetail;
+
+
+export default EventCard;
