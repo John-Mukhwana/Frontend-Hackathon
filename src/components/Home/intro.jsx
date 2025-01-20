@@ -1,6 +1,6 @@
 
 // import '../../styles/Intro.css';
-
+import { Link } from 'react-router-dom';
 const Intro = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -24,9 +24,13 @@ const Intro = () => {
         <p className="text-lg md:text-2xl mb-6 max-w-2xl">
         Seamlessly organize, manage, and execute events with ease and efficiency. Experience unparalleled tools designed to make your events unforgettable.
         </p>
-        <button className="bg-yellow-500 text-teal-900 font-semibold px-6 py-3 rounded-md hover:bg-yellow-400 transition duration-300">
-          Explore Now
-        </button>
+       
+        <Link
+        to="/Signup"
+         className="bg-yellow-500 text-teal-900 font-semibold px-6 py-3 rounded-md hover:bg-yellow-400 transition duration-300"
+      >
+        Explore More
+      </Link>
       </div>
     </section>
   );
