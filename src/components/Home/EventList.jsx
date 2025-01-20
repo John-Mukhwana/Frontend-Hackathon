@@ -9,17 +9,23 @@ const EventList = () => {
   const [selectedEvent, setSelectedEvent] = useState(null); 
   const [showModal, setShowModal] = useState(false); 
 
-  useEffect(() => {
-    fetch('http://localhost:5000/events')
-      .then((response) => response.json())
-      .then((data) => {
-        setEvents(data);
-        setFilteredEvents(data);
-        const uniqueCategories = ['All', ...new Set(data.map((event) => event.category))];
-        setCategories(uniqueCategories);
-      })
-      .catch((error) => console.error('Error fetching events:', error));
-  }, []);
+ // ...existing code...
+useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch('https://john-mukhwana.github.io/Frontend-Hackathon/db.json');
+      const data = await response.json();
+      setEvents(data.events);
+      setFilteredEvents(data.events);
+      const uniqueCategories = ['All', ...new Set(data.events.map((event) => event.category))];
+      setCategories(uniqueCategories);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
+  fetchEvents();
+}, []);
+// ...existing code...
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
