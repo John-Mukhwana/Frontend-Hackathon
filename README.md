@@ -36,7 +36,7 @@ The development of **Eventia** was a collaborative effort carried out by two ded
 ## 📜 Table of Contents
 
 - [Introduction](#introduction)
-- [Team Structure 🕵️‍♂️](#team-structure--)
+- [Team Structure 🕵️‍♂️](#team-structure-)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
