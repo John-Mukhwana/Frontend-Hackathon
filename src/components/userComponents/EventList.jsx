@@ -12,7 +12,7 @@ const EventList = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('https://john-mukhwana.github.io/Frontend-Hackathon/db.json')
+    fetch('https://john-mukhwana.github.io/Hackathon-Group_21/db.json')
       .then((response) => response.json())
       .then((data) => {
         setEvents(data.events);

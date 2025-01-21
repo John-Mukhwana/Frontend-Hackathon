@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import EventDetail from './EventDetails'; 
+import Spinner from '../shared/Spinner';
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -8,17 +9,20 @@ const EventList = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedEvent, setSelectedEvent] = useState(null); 
   const [showModal, setShowModal] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
  // ...existing code...
 useEffect(() => {
   const fetchEvents = async () => {
     try {
-      const response = await fetch('https://john-mukhwana.github.io/Frontend-Hackathon/db.json');
+      setLoading(true);
+      const response = await fetch('https://john-mukhwana.github.io/Hackathon-Group_21/db.json');
       const data = await response.json();
       setEvents(data.events);
       setFilteredEvents(data.events);
       const uniqueCategories = ['All', ...new Set(data.events.map((event) => event.category))];
       setCategories(uniqueCategories);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching events:', error);
     }
@@ -47,12 +51,14 @@ useEffect(() => {
   };
 
   return (
+    <div className="mt-20">
+    {loading ? (<Spinner />) : (
     <div className="event-list bg-gradient-to-b from-gray-100 to-gray-300 min-h-screen p-8">
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800 text-center border-b-4 border-blue-500 pb-2">
         🌟 Upcoming Events 🌟
       </h2>
 
-      <div className="flex justify-center mb-8">
+      <div className="flex-wrap justify-center mb-8">
         {categories.map((category) => (
           <button
             key={category}
@@ -106,6 +112,8 @@ useEffect(() => {
           </div>
         </div>
       )}
+    </div>
+    )}
     </div>
   );
 };

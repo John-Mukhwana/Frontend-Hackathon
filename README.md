@@ -1,6 +1,14 @@
 # PLP-Peer-To-Peer-Group-21 :rocket: <br>
 
---- 
+
+---
+## Live Links🌐📶
+
+- **Live Link on Netlify:** https://john-mukhwana-portfolio.netlify.app  
+- **Live Link on Vercel:** https://john-bradill-portfolio-black.vercel.app  
+- **Github Link** :https://github.com/John-Mukhwana/JohnMukhwana-Group_21.git 
+
+---
 
 # Eventia
 
