@@ -38,11 +38,41 @@ const Navbar = () => {
             Eventia
           </div>
           <div className="hidden md:flex space-x-8">
-            <Link to="/" className="hover:text-yellow-300 transition duration-300">Home</Link>
-            <Link to="#Events" className="hover:text-yellow-300 transition duration-300">Events</Link>
-            <Link to="/#OurSevies" className="hover:text-yellow-300 transition duration-300">Our Services</Link>
-            <Link to="/#Testimoniala" className="hover:text-yellow-300 transition duration-300">Testimonials</Link>
-            <Link to="/#contact" className="hover:text-yellow-300 transition duration-300">Contact Us</Link>
+            <div className="hover:text-yellow-300 transition duration-300">
+            <a
+            href=""
+            onClick={() => setIsDropdownOpen(false)}
+          >Home  
+          </a>
+            </div>
+            <div to="#Events" className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#events"
+            onClick={() => setIsDropdownOpen(false)}
+           >Events  
+          </a>
+            </div>
+            <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#services"
+            onClick={() => setIsDropdownOpen(false)}
+          >Our Services
+          </a>
+            </div>
+          <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#testimonals"
+            onClick={() => setIsDropdownOpen(false)}
+            >Testmonials
+           </a>
+          </div>
+            <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#contact"
+            onClick={() => setIsDropdownOpen(false)}
+            >Contact Us
+           </a>
+            </div>
           </div>
 
           {/* Dropdown for "Get Started" */}
@@ -113,21 +143,41 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-teal-700 px-4 py-2 space-y-2">
-          <Link to="/" className="block text-white hover:text-yellow-300" onClick={toggleMenu}>
-            Home
-          </Link>
-          <Link to="/boats" className="block text-white hover:text-yellow-300" onClick={toggleMenu}>
-           Events
-          </Link>
-          <Link to="/vehicles" className="block text-white hover:text-yellow-300" onClick={toggleMenu}>
-            Testmonials
-          </Link>
-          <Link to="/motors" className="block text-white hover:text-yellow-300" onClick={toggleMenu}>
-            Our Services
-          </Link>
-          <Link to="/contact" className="block text-white hover:text-yellow-300" onClick={toggleMenu}>
-            Contact Us
-          </Link>
+                      <div className="hover:text-yellow-300 transition duration-300">
+            <a
+            href=""
+            onClick={toggleMenu}
+          >Home  
+          </a>
+            </div>
+            <div to="#Events" className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#events"
+            onClick={toggleMenu}
+           >Events  
+          </a>
+            </div>
+            <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#services"
+            onClick={toggleMenu}
+          >Our Services
+          </a>
+            </div>
+          <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#testimonals"
+            onClick={toggleMenu}
+            >Testmonials
+           </a>
+          </div>
+            <div  className="hover:text-yellow-300 transition duration-300">
+            <a
+            href="#contact"
+            onClick={toggleMenu}
+            >Contact Us
+           </a>
+            </div>
           < button className="w-full bg-yellow-500 text-teal-700 px-4 py-2 rounded-md font-semibold hover:bg-yellow-400 transition duration-300" onClick={toggleMenu}>
            <Link to="/Login" className="block text-teal-700 hover:text-gray-600" >
             Sign In
@@ -141,8 +191,6 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-
-    //Into
 
 
   );

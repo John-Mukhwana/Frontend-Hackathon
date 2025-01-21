@@ -51,7 +51,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="mt-20">
+    <div id="events" className="mt-20">
     {loading ? (<Spinner />) : (
     <div className="event-list bg-gradient-to-b from-gray-100 to-gray-300 min-h-screen p-8">
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800 text-center border-b-4 border-blue-500 pb-2">

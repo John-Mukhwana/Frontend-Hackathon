@@ -31,7 +31,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="contact-us bg-gray-100 py-12">
+    <section id="contact" className="contact-us bg-gray-100 py-12">
       <div className="max-w-2xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
         <form onSubmit={handleSubmit} className="mb-8">
