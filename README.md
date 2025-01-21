@@ -4,9 +4,9 @@
 ---
 ## Live Links🌐📶
 
-- **Live Link on Netlify:** https://john-mukhwana-portfolio.netlify.app  
-- **Live Link on Vercel:** https://john-bradill-portfolio-black.vercel.app  
-- **Github Link** :https://github.com/John-Mukhwana/JohnMukhwana-Group_21.git 
+- **🚀Live Link on Netlify:** https://eventia-app.netlify.app/ 
+- **🚀Live Link on Vercel:** https://frontend-hackathon-beta.vercel.app/  
+- **🛠️Github Link:** https://github.com/John-Mukhwana/Hackathon-Group_21 
 
 ---
 
