@@ -16,7 +16,7 @@ const EventList = () => {
  // ...existing code...
 useEffect(() => {
   const fetchEvents = async () => {
-    AOS.init({duration: 2000});
+    AOS.init({duration: 1000});
     try {
       setLoading(true);
       const response = await fetch('https://john-mukhwana.github.io/Hackathon-Group_21/db.json');
@@ -54,7 +54,7 @@ useEffect(() => {
   };
 
   return (
-    <div id="events"  className="mt-20">
+    <div id="events"  >
     {loading ? (<Spinner />) : (
     <div className="event-list bg-gradient-to-b from-gray-100 to-gray-300 min-h-screen p-8">
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800 text-center border-b-4 border-blue-500 pb-2">
@@ -81,7 +81,7 @@ useEffect(() => {
         {filteredEvents.map((event) => (
           <div
             key={event.id}
-            data-aos="zoom-in-up"
+            data-aos="zoom-out-up"
             className="card p-4 bg-gray-700 text-gray-100 shadow-md hover:shadow-lg rounded-lg transition-shadow duration-200"
           >
             <img
