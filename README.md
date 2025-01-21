@@ -4,10 +4,10 @@
 
 # Eventia
 
-![Hackathon Image](./assets/1Capture.PNG)
+![Hackathon Image](./src/assets/1Capture.PNG)
 
 ---
-## Table of Contents
+## 📜 Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
