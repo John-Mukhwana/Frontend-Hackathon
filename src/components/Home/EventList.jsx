@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import EventDetail from './EventDetails'; 
 import Spinner from '../shared/Spinner';
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -14,6 +16,7 @@ const EventList = () => {
  // ...existing code...
 useEffect(() => {
   const fetchEvents = async () => {
+    AOS.init({duration: 2000});
     try {
       setLoading(true);
       const response = await fetch('https://john-mukhwana.github.io/Hackathon-Group_21/db.json');
@@ -51,7 +54,7 @@ useEffect(() => {
   };
 
   return (
-    <div id="events" className="mt-20">
+    <div id="events"  className="mt-20">
     {loading ? (<Spinner />) : (
     <div className="event-list bg-gradient-to-b from-gray-100 to-gray-300 min-h-screen p-8">
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800 text-center border-b-4 border-blue-500 pb-2">
@@ -78,6 +81,7 @@ useEffect(() => {
         {filteredEvents.map((event) => (
           <div
             key={event.id}
+            data-aos="zoom-in-up"
             className="card p-4 bg-gray-700 text-gray-100 shadow-md hover:shadow-lg rounded-lg transition-shadow duration-200"
           >
             <img
@@ -100,8 +104,8 @@ useEffect(() => {
       </div>
 
       {showModal && selectedEvent && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg w-4/5 max-w-lg p-6 shadow-lg relative">
+        <div  className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div data-aos="flip-right" className="bg-white rounded-lg w-4/5 max-w-lg p-6 shadow-lg relative">
             <button
               onClick={closeModal} 
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"

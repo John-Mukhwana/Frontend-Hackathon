@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
   },[]);
 
   return (
-    <section id="services" data-aos="fade-up-right" className="py-16 bg-blue-50">
+    <section id="services" data-aos="flip-up" className="py-16 bg-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-teal-800">Why Choose Eventia</h2>
         <p className="mt-4 text-lg text-gray-700">
