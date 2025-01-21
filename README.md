@@ -1,8 +1,65 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Eventia
 
-Currently, two official plugins are available:
+![Eventia Logo](./assets/logo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Introduction
+
+Eventia is a comprehensive event management platform designed to streamline the organization and execution of events. Whether you're planning a conference, workshop, or social gathering, Eventia provides the tools you need to manage registrations, track attendance, and facilitate seamless communication between organizers and participants.
+
+## Features
+
+- **User Authentication:** Secure sign-up and login functionalities with role-based access (User and Admin).
+- **Profile Management:** Users can create and manage their profiles, including personal and contact information.
+- **Dashboard:** Personalized dashboards for users and admins to manage events effectively.
+- **Responsive Design:** Optimized for various devices to ensure a consistent user experience.
+- **Real-time Notifications:** Instant feedback and notifications using `react-toastify`.
+- **Secure Password Handling:** Passwords are hashed using `bcryptjs` for enhanced security.
+- **Navigation:** Intuitive navigation using `react-router-dom` and `react-icons`.
+
+## Technologies Used
+
+- **Frontend:**
+  - React.js
+  - React Router DOM
+  - React Icons
+  - React Toastify
+  - Bcrypt.js
+  - Tailwind CSS
+
+- **Backend & Authentication:**
+  - Supabase
+    - Authentication
+    - Postgres Database
+    - Row-Level Security (RLS) Policies
+
+- **Development Tools:**
+  - Visual Studio Code
+  - Git & GitHub
+
+## Installation
+
+### Prerequisites
+
+- **Node.js**: Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/).
+- **Git**: Install Git from [here](https://git-scm.com/).
+
+### Steps
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/your-username/eventia.git
+   cd eventia
