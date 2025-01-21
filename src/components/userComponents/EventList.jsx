@@ -51,7 +51,7 @@ const EventList = () => {
         🌟 Upcoming Events 🌟
       </h2>
       
-      <div className="flex justify-center mb-8">
+      <div className="flex-wrapp  justify-center mb-8">
         {categories.map((category) => (
           <button
             key={category}
