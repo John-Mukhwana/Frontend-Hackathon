@@ -4,11 +4,21 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaUserCircle } from 'react-icons/fa';
 import Spinner from '../shared/Spinner'; // Ensure the Loading component is correctly imported
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client
+const supabase = createClient(
+  'https://cmyinpvkatiaiasckqgv.supabase.co', // Replace with your Supabase URL
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWlucHZrYXRpYWlhc2NrcWd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjMyODczMDIsImV4cCI6MjAzODg2MzMwMn0.X3rhkCuSXsXvlqhUzeG5CS4AM3y6Tju7gnngneT7aCQ' // Replace with your Supabase Anon Key
+);
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
-  const [editForm, setEditForm] = useState(null);
+  const [editForm, setEditForm] = useState(false);
   const [profilePicture, setProfilePicture] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
 
   const getToken = () => localStorage.getItem('authToken');
   const getUserId = () => {
@@ -16,73 +26,49 @@ const UserProfile = () => {
     return userData ? JSON.parse(userData).userId : null;
   };
 
+  const userId = getUserId();
+
   useEffect(() => {
-    fetchUserData();
-  }, []);
+    const fetchUserProfile = async () => {
+      setLoading(true);
+      try {
+        if (!userId) {
+          throw new Error('User ID not found. Please log in.');
+        }
 
-  const fetchUserData = async () => {
-    try {
-      const token = getToken();
-      const userId = getUserId();
-      if (!token || !userId) throw new Error('Missing token or userId');
+        // Fetch user profile from Supabase
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', userId)
+          .single();
 
-      const response = await axios.get(`http://localhost:5000/users/${userId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+        if (error) {
+          throw error;
+        }
 
-      setUser(response.data);
-      setEditForm(response.data);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      toast.error('Error fetching user data');
-    }
-  };
-
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
-    setEditForm({ ...editForm, [name]: value });
-  };
-
-  const handleEditSave = async () => {
-    try {
-      const token = getToken();
-      const userId = getUserId();
-      if (!token || !userId || !editForm) throw new Error('Missing token, userId, or form data');
-
-      let profilePictureUrl = editForm.profilePicture;
-
-      if (profilePicture) {
-        // Upload the profile picture to Cloudinary
-        const formData = new FormData();
-        formData.append('file', profilePicture);
-        formData.append('upload_preset', 'UserProfile');
-
-        const cloudinaryResponse = await axios.post('https://api.cloudinary.com/v1_1/dbczn8b8l/image/upload', formData);
-        profilePictureUrl = cloudinaryResponse.data.secure_url;
+        setUser(data);
+      } catch (err) {
+        console.error('Error fetching user profile:', err.message);
+        setError('Failed to load user profile. Please try again later.');
+        toast.error('Failed to load user profile.');
+      } finally {
+        setLoading(false);
       }
+    };
 
-      // Update the profile picture URL in editForm
-      const updatedForm = { ...editForm, profilePicture: profilePictureUrl };
+    fetchUserProfile();
+  }, [userId]);
 
-      await axios.put(`http://localhost:8000/api/users/${userId}`, updatedForm, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+  const handleEditToggle = () => {
+    setEditForm(!editForm);
+  };
 
-      // Update the user state with the new profile picture
-      setUser(updatedForm);
-      setEditForm(updatedForm);
-      toast.success('Profile updated successfully!');
-      // Refresh on success
-      fetchUserData();
-      
-    } catch (error) {
-      console.error('Error updating profile:', error);
-      toast.error('Error updating profile');
-    }
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleProfilePictureChange = (e) => {
@@ -91,92 +77,136 @@ const UserProfile = () => {
     }
   };
 
-  // Get profile picture URL from user state
-  const getProfilePictureUrl = () => {
-    return user?.profilePicture || editForm?.profilePicture;
+  const handleSave = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    setError(null);
+
+    try {
+      let profilePictureUrl = user.profile_picture_url;
+
+      if (profilePicture) {
+        const formData = new FormData();
+        formData.append('file', profilePicture);
+        formData.append('upload_preset', 'your_upload_preset'); // Replace with your Cloudinary upload preset
+
+        // Upload to Cloudinary
+        const cloudinaryResponse = await axios.post(
+          'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', // Replace with your Cloudinary URL
+          formData
+        );
+
+        profilePictureUrl = cloudinaryResponse.data.secure_url;
+      }
+
+      // Update user profile in Supabase
+      const { data, error } = await supabase
+        .from('profiles')
+        .update({
+          username: user.username,
+          email: user.email,
+          bio: user.bio,
+          profile_picture_url: profilePictureUrl,
+        })
+        .eq('id', userId);
+
+      if (error) {
+        throw error;
+      }
+
+      setEditForm(false);
+      toast.success('Profile updated successfully.');
+    } catch (err) {
+      console.error('Error updating profile:', err.message);
+      setError('Failed to update profile. Please try again.');
+      toast.error('Failed to update profile.');
+    } finally {
+      setSaving(false);
+    }
   };
 
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+
   return (
-    <div className='flex flex-col mt-28'>
-      {user && editForm ? (
-        <div className="bg-white p-6 items-center justify-center border md:border-blue-900 lg:ml-10 md:rounded-lg">
-          <div className="flex flex-col items-center mb-6">
-            <h1 className="text-3xl font-bold mb-6 text-gray-900">Profile</h1>
-            <div className="relative">
-              {getProfilePictureUrl() ? (
-                <img
-                  src={getProfilePictureUrl()}
-                  alt="Profile"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-gray-300 dark:border-gray-700"
-                />
-              ) : (
-                <FaUserCircle className="w-32 h-32 text-gray-300 dark:text-gray-600" />
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleProfilePictureChange}
-                className="absolute top-0 left-0 w-32 h-32 opacity-0 cursor-pointer"
-              />
-            </div>
-            <h2 className="mt-2 text-xl font-semibold text-gray-900">
-              {editForm.fullName}
-            </h2>
+    <div className="user-profile-container mt-20">
+      <ToastContainer />
+      <h2>User Profile</h2>
+      <div className="profile-picture">
+        {user.profile_picture_url ? (
+          <img src={user.profile_picture_url} alt="Profile" />
+        ) : (
+          <FaUserCircle size={100} />
+        )}
+      </div>
+      {editForm ? (
+        <form onSubmit={handleSave} className="profile-form">
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={user.username || ''}
+              onChange={handleInputChange}
+              required
+            />
           </div>
-          <form>
-            <div className="mb-4">
-              <label className="block text-gray-900">Full Name</label>
-              <input
-                type="text"
-                name="fullName"
-                value={editForm.fullName}
-                onChange={handleEditChange}
-                className="w-full border rounded px-3 py-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-900">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={editForm.email}
-                onChange={handleEditChange}
-                className="w-full border rounded px-3 py-2 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-900">Contact Phone</label>
-              <input
-                type="text"
-                name="contactPhone"
-                value={editForm.contactPhone}
-                onChange={handleEditChange}
-                className="w-full border rounded px-3 py-2 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-900">Address</label>
-              <input
-                type="text"
-                name="address"
-                value={editForm.address}
-                onChange={handleEditChange}
-                className="w-full border rounded px-3 py-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-            <div className="flex justify-end">
-              <button
-                type="button"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
-                onClick={handleEditSave}
-              >
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={user.email || ''}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="bio">Bio:</label>
+            <textarea
+              name="bio"
+              id="bio"
+              value={user.bio || ''}
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+          <div>
+            <label htmlFor="profilePicture">Profile Picture:</label>
+            <input
+              type="file"
+              name="profilePicture"
+              id="profilePicture"
+              accept="image/*"
+              onChange={handleProfilePictureChange}
+            />
+          </div>
+          <button type="submit" disabled={saving}>
+            {saving ? 'Saving...' : 'Save Changes'}
+          </button>
+          <button type="button" onClick={handleEditToggle} disabled={saving}>
+            Cancel
+          </button>
+        </form>
       ) : (
-        <Spinner/>
+        <div className="profile-details">
+          <p>
+            <strong>Username:</strong> {user.username || 'N/A'}
+          </p>
+          <p>
+            <strong>Email:</strong> {user.email || 'N/A'}
+          </p>
+          <p>
+            <strong>Bio:</strong> {user.bio || 'N/A'}
+          </p>
+          <button onClick={handleEditToggle}>Edit Profile</button>
+        </div>
       )}
     </div>
   );
