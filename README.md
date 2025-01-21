@@ -1,11 +1,12 @@
 # PLP-Peer-To-Peer-Group-21 :rocket: <br>
 
-----
+--- 
+
 # Eventia
 
 ![Hackathon Image](./assets/1Capture.PNG)
 
-----
+---
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -43,6 +44,7 @@ Eventia is a comprehensive event management platform designed to streamline the 
   - Tailwind CSS
 
 - **Backend & Authentication:**
+  - Flask
   - Supabase
     - Authentication
     - Postgres Database
