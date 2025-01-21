@@ -262,7 +262,7 @@ const RegisterForm = () => {
       } else {
         toast.success('Registration successful!',{
           onClose: ()=> navigate('/login'),
-          autoClose: 3000,
+          autoClose: 1000,
         })
     
 
