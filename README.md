@@ -10,6 +10,22 @@
 
 ---
 
+## Team Structure
+
+The development of **Eventia** was a collaborative effort carried out by two dedicated teams within **PLP-Peer-To-Peer-Group-21**:
+
+- ### Frontend Team:
+  Tasked with designing and implementing the user interface.
+
+  - **Github Link** : https://github.com/John-Mukhwana/Hackathon-Group_21 
+<br>
+- ### Backend Team:
+  Responsible for the server-side operations.
+
+ - **Github Link** : https://github.com/Samboja651/event-management-system
+
+---
+
 # Eventia
 
 ![Hackathon Image](./src/assets/1Capture.PNG)
@@ -18,6 +34,7 @@
 ## 📜 Table of Contents
 
 - [Introduction](#introduction)
+- [Team Structure](#team-structure)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
