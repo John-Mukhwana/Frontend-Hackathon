@@ -1,8 +1,11 @@
+# PLP-Peer-To-Peer-Group-21 :rocket: <br>
 
+----
 # Eventia
 
-![Eventia Logo](./assets/logo.png)
+![Hackathon Image](./assets/1Capture.PNG)
 
+----
 ## Table of Contents
 
 - [Introduction](#introduction)
