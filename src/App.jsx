@@ -65,7 +65,7 @@ function App() {
           path:"Profile",
           element:<UserProfile/>
 
-        }
+        },
       ],
     },
   ]);
@@ -84,6 +84,7 @@ function App() {
         draggable
         pauseOnHover
       />
+      
     </>
   );
 }

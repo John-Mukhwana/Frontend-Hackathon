@@ -12,8 +12,8 @@ const NewEventsPage = () => {
 const fetchNewEvents = async () => {
   setLoading(true);
   try {
-    const response = await axios.get('http://localhost:5000/events');
-    const allEvents = response.data;
+    const response = await axios.get('https://john-mukhwana.github.io/Hackathon-Group_21/db.json');
+    const allEvents = response.data.events;
 
     const today = new Date();
     const oneWeekFromNow = new Date();

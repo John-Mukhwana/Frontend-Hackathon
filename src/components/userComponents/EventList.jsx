@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import EventDetail from '../Home/EventDetails'; 
+import EventDetail from './EventDetails'; 
 import Spinner from '../shared/Spinner';
 const EventList = () => {
   const [events, setEvents] = useState([]);
