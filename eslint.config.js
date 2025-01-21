@@ -10,12 +10,14 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
+    },
+    globals: {
+      process: 'readonly', // Add this line
     },
     settings: { react: { version: '18.3' } },
     plugins: {

@@ -178,7 +178,6 @@ const UserProfile = () => {
       ) : (
         <Spinner/>
       )}
-      <ToastContainer />
     </div>
   );
 };
