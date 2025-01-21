@@ -18,11 +18,13 @@ The development of **Eventia** was a collaborative effort carried out by two ded
   Tasked with designing and implementing the user interface.
 
   - **Github Link** : https://github.com/John-Mukhwana/Hackathon-Group_21 
+  
 <br>
+
 - ### Backend Team:
   Responsible for the server-side operations.
 
- - **Github Link** : https://github.com/Samboja651/event-management-system
+  - **Github Link** : https://github.com/Samboja651/event-management-system
 
 ---
 
