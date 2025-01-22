@@ -15,13 +15,15 @@ const EventList = () => {
     fetch('https://john-mukhwana.github.io/Hackathon-Group_21/db.json')
       .then((response) => response.json())
       .then((data) => {
-        setEvents(data.events);
-        setFilteredEvents(data.events);
+        setEvents(data.events || []);
+        setFilteredEvents(data.events || []);
         const uniqueCategories = ['All', ...new Set(data.events.map((event) => event.category))];
         setCategories(uniqueCategories);
       })
       .then(() => setLoading(false))
       .catch((error) => console.error('Error fetching events:', error));
+       setEvents([])
+       setFilteredEvents([])
   },  []);
 
   const handleCategoryChange = (category) => {

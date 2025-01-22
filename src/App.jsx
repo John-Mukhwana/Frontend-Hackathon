@@ -13,6 +13,9 @@ import Cart from './components/userComponents/cart/cart'
 import TicketPage from "./components/userComponents/ticketPage";
 import UserProfile from "./components/userComponents/userProfile";
 import PaymentPage from "./components/userComponents/PaymentPage";
+import Success from "./components/userComponents/Checkout/Success";
+import Cancel from "./components/userComponents/Checkout/Cancel";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -66,6 +69,14 @@ function App() {
           element:<UserProfile/>
 
         },
+        {
+          path:"success",
+          element:<Success/>
+        },
+        {
+          path:"cancel",
+          element:<Cancel/>
+        }
       ],
     },
   ]);

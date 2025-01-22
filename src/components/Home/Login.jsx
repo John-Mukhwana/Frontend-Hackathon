@@ -6,7 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import supabase from '../../helpers/supabaseClient';
+import {supabase} from '../../helpers/supabaseClient';
 import bcrypt from 'bcryptjs'; // Import bcryptjs
 
 const LoginForm = () => {

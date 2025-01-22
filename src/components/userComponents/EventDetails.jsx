@@ -1,9 +1,16 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { useCart } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 const EventDetail = ({ event }) => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
+  
+    // Retrieve user from localStorage
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
 
   const handleRSVP = () => {
     // Implement RSVP functionality here
@@ -11,14 +18,57 @@ const EventDetail = ({ event }) => {
       position: 'top-right',
       autoClose: 3000,
     });
+    console.log(`RSVPed to event: ${event.title}`);
   };
 
-  const handleBook = () => {
-    // Implement Book functionality here
-    toast.success(`Booked ${event.title}!`, {
-      position: 'top-right',
-      autoClose: 3000,
-    });
+  const handleBook = async () => {
+    if (!user || !user.id) {
+      toast.error('Please log in to book an event.', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+      console.log('User not logged in.');
+      return;
+    }
+
+    console.log('Initiating payment for event:', event.id);
+
+    try {
+      const response = await fetch('https://backend-hackathon-0dnz.onrender.com/payment/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: event.price * 100, // Amount in cents
+          currency: 'usd',
+          userId: user.id, // Ensure you're sending userId
+        }),
+      });
+
+      console.log('Received response:', response);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Server error:', errorData);
+        toast.error('Failed to create checkout session. Please try again.');
+        throw new Error('Failed to create checkout session');
+      }
+
+      const data = await response.json();
+      console.log('Checkout session data:', data);
+
+      if (data.url) {
+        console.log('Redirecting to:', data.url);
+        window.location.href = data.url; // Redirect to Stripe Checkout
+      } else {
+        console.error('No URL found in response:', data);
+        toast.error('No checkout URL received. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error creating Stripe checkout session:', error);
+      toast.error('Unable to initiate checkout. Please try again.');
+    }
   };
 
   const handleAddToCart = () => {
@@ -27,6 +77,7 @@ const EventDetail = ({ event }) => {
       position: 'top-right',
       autoClose: 3000,
     });
+    console.log(`Added to cart: ${event.title}`);
   };
 
   return (
