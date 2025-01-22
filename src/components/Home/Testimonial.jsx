@@ -3,8 +3,8 @@ import '../../styles/Testimonals.css';
 
 const testimonials = [
   {
-    name: 'John Doe',
-    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+    name: 'John Mukhwana',
+    image: 'https://res.cloudinary.com/dbczn8b8l/image/upload/v1723411446/rb3znmfhtghbapadvboe.jpg',
     review:
       "Eventia made planning our corporate event seamless and stress-free. The tools provided were intuitive and the support team was excellent!",
     rating: 5,
