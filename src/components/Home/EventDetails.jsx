@@ -48,7 +48,7 @@ const EventDetail = ({ event }) => {
           <strong>Location:</strong> {event.location}
         </p>
         <p className="text-gray-600 mb-1">
-          <strong>Price:</strong> KSH {event.price}
+          <strong>Price:</strong> $ {event.price}
         </p>
         <p className="text-gray-600 mb-4">
           <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
