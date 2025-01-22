@@ -4,8 +4,7 @@
 ---
 ## Live Links🌐📶
 
-- **🚀Live Link on Netlify:** https://eventia-app.netlify.app/ 
-- **🚀Live Link on Vercel:** https://frontend-hackathon-beta.vercel.app/  
+- **🚀Live Link on Netlify:** https://eventia-app.netlify.app/  
 - **🛠️Github Link:** https://github.com/John-Mukhwana/Hackathon-Group_21 
 
 ---
