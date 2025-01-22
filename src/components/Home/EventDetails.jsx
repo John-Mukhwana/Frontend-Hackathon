@@ -7,7 +7,7 @@ const EventDetail = ({ event }) => {
 
   const handleRSVP = () => {
     // Implement RSVP functionality here
-    toast.success(`RSVPed to ${event.title}!`, {
+    toast.success(`Login RSVPed to ${event.title}!`, {
       position: 'top-right',
       autoClose: 3000,
     });
@@ -15,7 +15,7 @@ const EventDetail = ({ event }) => {
 
   const handleBook = () => {
     // Implement Book functionality here
-    toast.success(`Login to Book ${event.title}!`, {
+    toast.success(` Login to Book ${event.title}!`, {
       position: 'top-right',
       autoClose: 3000,
     });
@@ -23,7 +23,7 @@ const EventDetail = ({ event }) => {
 
   const handleAddToCart = () => {
     addToCart(event);
-    toast.success(`${event.title} added to cart!`, {
+    toast.success(`Login to add ${event.title} to cart `, {
       position: 'top-right',
       autoClose: 3000,
     });
