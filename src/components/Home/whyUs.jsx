@@ -17,9 +17,9 @@ const WhyChooseUs = () => {
           Discover { `Eventia's` } comprehensive suite of tools designed to streamline event planning, management, and execution, ensuring every detail is handled with precision and excellence.
         </p>
         
-        <div  className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-aos="flip-up"  className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Eevent planning Card*/}
-          <div  data-aos="flip-up"  className="bg-blue-600 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-blue-700">
+          <div className="bg-blue-600 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-blue-700">
             <div className="flex items-center justify-center mb-4 text-4xl">
             <FaRegCalendarAlt />
             </div>
@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
           </div>
 
            {/* Guest Management Card */}
-          <div data-aos="flip-up"  className="bg-green-700 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-green-800">
+          <div className="bg-green-700 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-green-800">
             <div className="flex items-center justify-center mb-4 text-4xl">
             <FaChartLine />
             </div>
@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Seamless Communication Card */}
-          <div data-aos="flip-up"  className="bg-blue-800 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-blue-900">
+          <div  className="bg-blue-800 text-white rounded-lg shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:bg-blue-900">
             <div className="flex items-center justify-center mb-4 text-4xl">
             <FaEnvelopeOpenText />
             </div>
