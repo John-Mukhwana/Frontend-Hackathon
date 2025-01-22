@@ -40,7 +40,7 @@ const EventDetail = ({ event }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          amount: event.price * 100, // Amount in cents
+          amount: event.price/129 * 100, // Amount in cents
           currency: 'usd',
           userId: user.id, // Ensure you're sending userId
         }),
