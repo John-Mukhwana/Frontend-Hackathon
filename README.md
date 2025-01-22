@@ -132,7 +132,7 @@ Eventia is a comprehensive event management platform designed to streamline the 
 ## Stripe
 ### Integration with Stripe
 
-![Hackathon Image](./src/assets/Stripe.PNG)
+![Stripe Image](./src/assets/Stripe.PNG)
 
 Eventia uses Stripe for secure and efficient payment processing. The integration involves the following steps:
 
