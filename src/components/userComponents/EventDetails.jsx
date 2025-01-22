@@ -41,7 +41,7 @@ const EventDetail = ({ event }) => {
         },
         body: JSON.stringify({
           amount: event.price * 100, // Amount in cents
-          currency: 'KES',
+          currency: 'usd',
           userId: user.id, // Ensure you're sending userId
         }),
       });
