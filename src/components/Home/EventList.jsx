@@ -95,7 +95,7 @@ useEffect(() => {
             <p className="font-semibold text-lg mt-2">KSH {event.price}</p>
             <button
               onClick={() => openModal(event)} 
-              className="text-blue-400 mt-4 block text-center hover:underline"
+              className="bg-blue-400 p-2 rounded-md mt-4 block text-center hover:bg-blue-600 transition duration-300"
             >
               View Details
             </button>
