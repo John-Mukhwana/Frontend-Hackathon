@@ -69,16 +69,17 @@ function App() {
           element:<UserProfile/>
 
         },
-        {
-          path:"success",
-          element:<Success/>
-        },
-        {
-          path:"cancel",
-          element:<Cancel/>
-        }
+       
       ],
     },
+    {
+      path:"success",
+      element:<Success/>
+    },
+    {
+      path:"cancel",
+      element:<Cancel/>
+    }
   ]);
 
   return (
