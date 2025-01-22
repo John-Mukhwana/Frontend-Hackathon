@@ -15,7 +15,7 @@ const EventDetail = ({ event }) => {
 
   const handleBook = () => {
     // Implement Book functionality here
-    toast.success(`Booked ${event.title}!`, {
+    toast.success(`Login to Book ${event.title}!`, {
       position: 'top-right',
       autoClose: 3000,
     });
