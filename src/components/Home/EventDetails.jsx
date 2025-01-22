@@ -22,7 +22,6 @@ const EventDetail = ({ event }) => {
   };
 
   const handleAddToCart = () => {
-    addToCart(event);
     toast.success(`Login to add ${event.title} to cart `, {
       position: 'top-right',
       autoClose: 3000,
