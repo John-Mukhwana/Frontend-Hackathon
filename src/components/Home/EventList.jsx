@@ -92,7 +92,7 @@ useEffect(() => {
             <h3 className="text-lg font-bold mt-2">{event.title}</h3>
             <p className="text-sm text-gray-400">{event.category}</p>
             <p className="text-sm text-gray-300">{event.location}</p>
-            <p className="font-semibold text-lg mt-2">KSH {event.price}</p>
+            <p className="font-semibold text-lg mt-2">$ {event.price}</p>
             <button
               onClick={() => openModal(event)} 
               className="bg-blue-400 p-2 rounded-md mt-4 block text-center hover:bg-blue-600 transition duration-300"
