@@ -132,6 +132,15 @@ Eventia is a comprehensive event management platform designed to streamline the 
 ## Stripe
 ### Integration with Stripe
 
+### Test for succesful payment using this card information for testing or any tastable numbers
+
+```bash
+echo "Card Number: 4242 4242 4242 4242"
+echo "Card Expiry: Any valid future date (e.g., 12/34)"
+echo "CVC: Any 3-digit number (e.g., 123)"
+echo "ZIP Code: Any 5-digit number (e.g., 12345)"
+```
+
 ![Stripe Image](./src/assets/Stripe.PNG)
 
 Eventia uses Stripe for secure and efficient payment processing. The integration involves the following steps:

@@ -8,7 +8,7 @@ const testimonials = [
     review:
       "Eventia made planning our corporate event seamless and stress-free. The tools provided were intuitive and the support team was excellent!",
     rating: 5,
-    date: 'October 15, 2024',
+    date: 'January 21, 2025',
   },
   {
     name: 'Jane Smith',
