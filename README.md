@@ -40,14 +40,19 @@ The development of **Eventia** was a collaborative effort carried out by two ded
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Stripe](#stripe)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
+--- 
+
 ## Introduction
 
 Eventia is a comprehensive event management platform designed to streamline the organization and execution of events. Whether you're planning a conference, workshop, or social gathering, Eventia provides the tools you need to manage registrations, track attendance, and facilitate seamless communication between organizers and participants.
+
+--- 
 
 ## Features
 
@@ -58,6 +63,8 @@ Eventia is a comprehensive event management platform designed to streamline the 
 - **Real-time Notifications:** Instant feedback and notifications using `react-toastify`.
 - **Secure Password Handling:** Passwords are hashed using `bcryptjs` for enhanced security.
 - **Navigation:** Intuitive navigation using `react-router-dom` and `react-icons`.
+
+---
 
 ## Technologies Used
 
@@ -80,6 +87,8 @@ Eventia is a comprehensive event management platform designed to streamline the 
   - Visual Studio Code
   - Git & GitHub
 
+--- 
+
 ## Installation
 
 ### Prerequisites
@@ -94,3 +103,91 @@ Eventia is a comprehensive event management platform designed to streamline the 
    ```bash
    git clone https://github.com/your-username/eventia.git
    cd eventia
+
+2.  ```bash
+   pnpm init
+  
+---
+
+## Usage 
+
+### Running the Application
+
+1. **Install Dependencies**
+
+  ```bash
+  pnpm install
+  ```
+
+2. **Start the Development Server**
+
+  ```bash
+  pnpm start
+  ```
+
+  The application should now be running on `http://localhost:3001`.
+
+--- 
+
+## Stripe
+### Integration with Stripe
+
+![Hackathon Image](./src/assets/Stripe.PNG)
+
+Eventia uses Stripe for secure and efficient payment processing. The integration involves the following steps:
+
+1. **Stripe Account Setup**: Create a Stripe account and obtain the API keys.
+2. **Frontend Integration**: Use Stripe's React library to handle payment forms and tokenization.
+3. **Backend Integration**: Implement endpoints in the backend to handle payment intents and confirmations using Flask.
+4. **Environment Variables**: Store API keys and other sensitive information in environment variables for security.
+5. **Testing**: Use Stripe's test mode to ensure the payment flow works correctly before going live.
+
+For detailed instructions, refer to the [Stripe Documentation](https://stripe.com/docs).
+
+--- 
+
+## Project Structure
+
+```plaintext
+eventia/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   └── ...
+├── .gitignore
+├── package.json
+└── README.md
+```
+---
+
+## Contributing
+
+We welcome contributions from the community. Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+For any inquiries or feedback, please contact us at:
+
+- **Email:** eventia@gmail.com
+- **GitHub :** https://github.com/John-Mukhwana/Hackathon-Group_21
+- **Twitter:** [@eventia](https://twitter.com/eventia)
